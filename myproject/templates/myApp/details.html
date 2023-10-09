@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    #jin{
+        margin-left:40px;
+    }
+</style>
+<div class="container mt-5">
+  <div class="row">
+    {% for movie_detail in movies %}
+    <div class="col-md-12 mb-4">
+      <div class="d-flex align-items-center">
+        <img src="{{ movie_detail.image.url }}" alt="{{ movie_detail.movie }}" width="350" class="mr-3">
+        <div class="ml-3" id='jin'>
+          <h5><strong>Moive Name : </strong>{{ movie_detail.movie }}</h5>
+          <p><strong>Actor Name : </strong>{{ movie_detail.actor_name }} | <strong>Actress Name : </strong>{{ movie_detail.actress_name }}</p>
+          <p><strong>Moive Detials : </strong>{{ movie_detail.details }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

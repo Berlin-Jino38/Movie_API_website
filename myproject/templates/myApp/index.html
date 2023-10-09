@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    {% for i in movies %}
+    <div class="col-md-4 mb-4">
+      <div class="d-inline-block card" style="width: 18rem;">
+        <img src="{{ i.pic.url }}" class="card-img-top" alt="{{ i.name }}">
+        <div class="card-body">
+          <h5 class="card-title"><strong>MOVIE NAME:</strong>{{ i.name }}</h5>
+          <p class="card-text"><strong>YEAR:</strong>{{ i.year }}</p>
+          <p class="card-text"><strong>HIT:</strong>{{ i.hit_flop }}</p>
+          <p class="card-text"><strong>RATING:</strong>{{ i.rating }}</p>
+          <a href="{% url 'details' i.name %}" class="btn btn-primary">More Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+
+
